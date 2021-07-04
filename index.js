@@ -11,12 +11,22 @@ default_expiration = 3600
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
+
 app.get('/test', async (req, res) =>{
     const albumId = req.params.albumId
-    const {data} = await axios.get('https://jsonplaceholder.typicode.com/todos/',{params : {albumId}})
-    res.send({data})
-    redisClient.setex('photos', default_expiration, JSON.stringify (data))
+    redisClient.get('photos', async (err, photos) =>{
+        if(err) console.log(err)
+        if(photos != null){
+            return res.json(JSON.parse(photos))
+        } else {
+            const {data} = await axios.get('https://jsonplaceholder.typicode.com/todos/',{params : {albumId}})
+            res.send({data})
+            redisClient.setex('photos', default_expiration, JSON.stringify (data))
+        }
+    })
 })
+
+
 app.listen(process.env.PORT, () => {
     console.log("Server is running on",process.env.PORT)
 })
