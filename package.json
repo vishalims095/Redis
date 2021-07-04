@@ -1,0 +1,26 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "description": "basic redis practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalims095/Redis.git"
+  },
+  "author": "vishal sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalims095/Redis/issues"
+  },
+  "homepage": "https://github.com/vishalims095/Redis#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.9"
+  }
+}
