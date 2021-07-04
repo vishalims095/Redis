@@ -1,4 +1,4 @@
-# Reids
+# Redis
 ![alt text](https://redis.io/images/redis-white.png)
 
  It's a type of nosql database and not similar to any other nosql database, redis doesn't have any idea of table or documents. All data store in redis in the form of key value pairs. Another most important difference is other traditional database store data in disks and redis stores data in vertual memory or ram so it's too fast.
