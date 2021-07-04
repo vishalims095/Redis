@@ -27,6 +27,19 @@ app.get('/test', async (req, res) =>{
 })
 
 
+function getOrSetCache(key , cb) {
+    return new Promise((res, rej) =>{
+        redisClient.get(key, async (error, data) => {
+            if (error) rej (error)
+            if(data != null) res (JSON.parse(data))
+            const freshData = await cb()
+            redisClient.setex(key, default_expiration, freshData)
+            resolve(freshData)
+        })
+    })
+}
+
+
 app.listen(process.env.PORT, () => {
     console.log("Server is running on",process.env.PORT)
 })
