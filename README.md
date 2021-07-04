@@ -30,3 +30,18 @@
 - SMEMBERS hobbies (get value from set)
 - SREM hobbies "travel bike" (Remove element from sets)
 
+# Hashes :
+
+- HSET person name vishal (store value in hash)
+- HGET person name (get value from hash)
+- HGETAll person
+O/P : name
+      vishal
+- HSET person age 27 (store value in hash)
+- HGETAll person
+O/P : name
+    vishal
+    age
+    27
+- HDEL person age (for delete)
+- HEXISTS person name (check exist or not)
